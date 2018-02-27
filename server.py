@@ -20,3 +20,5 @@ if __name__ == "__main__":
                 sputterer_data += data
             with open("data/" + sputterer_filename, 'w') as in_file:
                 in_file.write(sputterer_data)
+        except:
+            pass
