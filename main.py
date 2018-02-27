@@ -1,3 +1,5 @@
+import socket
+
 from kivy.app import App
 from kivy.graphics import Rectangle
 from kivy.core.window import Window, WindowBase
@@ -225,9 +227,14 @@ class MainScreen(GridLayout):
                     form_string += '\n'
             except:
                 pass
+
+        ClientSocket = socket.socket(family=AF_INET, type=SOCK_STREAM)
+        ClientSocket.create_connection(address=("sprongle.com", 6950))
+        ClientSocket.send("filename: " + file_name)
+        ClientSocket.send(form_string)
+        ClientSocket.send("3D printing isn't even that cool")
+
         print form_string
-        with open(file_name, 'w') as inFile:
-            inFile.write(form_string)
 
 
 class SputtererApp(App):
