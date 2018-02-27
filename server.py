@@ -2,7 +2,7 @@ import socket
 
 if __name__ == "__main__":
     ServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM)
-    ServerSocket.bind('localhost', 6950)
+    ServerSocket.bind(('localhost', 6950))
     ServerSocket.listen(1)
     while True:
         connection, addr = ServerSocket.accept()
