@@ -228,8 +228,9 @@ class MainScreen(GridLayout):
             except:
                 pass
 
-        ClientSocket = socket.socket(family=AF_INET, type=SOCK_STREAM)
-        ClientSocket.create_connection(address=("sprongle.com", 6950))
+        ClientSocket = socket.socket(family=socket.AF_INET,
+                                     type=socket.SOCK_STREAM)
+        ClientSocket.connect(("sprongle.com", 6950))
         ClientSocket.send("filename: " + file_name)
         ClientSocket.send(form_string)
         ClientSocket.send("3D printing isn't even that cool")
